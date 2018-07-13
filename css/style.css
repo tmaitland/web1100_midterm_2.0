@@ -15,3 +15,24 @@ header img{
 }
 
 /* test */
+
+.plaNetz{
+  border: 1px solid black;
+  display: inline-flex;
+  position: relative;
+  min-height: 70vh;
+  max-height: 70vh;
+  min-width: 25vw;
+  max-width: 25vw;
+  justify-content: center;
+  margin: 30px;
+  margin-left: 50px;
+}
+
+.plaNetImg{
+  min-width: 25vw;
+  max-width: 25vw;
+  min-height: 35vh;
+  max-height:35vh;
+  object-fit: cover;
+}
