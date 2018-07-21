@@ -18,15 +18,14 @@ const planetImages = {
 class GetStarWars{
   constructor(images){
     this.images = images
-    this.getInfo(6)
+    this.getMultiple(6)
   } 
 
   getInfo(searchTerm, num){
     $.ajax({
-      url: "https://swapi.co/api/planets/",
+      url: `https://swapi.co/api/${searchTerm}/${num}/`,
       dataType: "json",
       success: (data) =>{
-        this.getMultiple([0,1,2,3,4,5])
         this.displayInfo(data)
         console.log(data)   
       },
@@ -40,9 +39,8 @@ class GetStarWars{
     if(amount <= 0){
       return 
     } 
-      for(let i=0; i<amount.length; i++){
-  
-      console.log("wow")
+      for(let i=1; i<=amount; i++){
+        this.getInfo("planets", i)
     }
   
     //getInfo("planets", 1)
@@ -56,57 +54,20 @@ class GetStarWars{
     // the amount of times the value of the variable "amount" is worth. for example, if "amount" is equal to 6, the loop should go 6 times. Inside the loop call the getInfo method.
   }
   displayInfo(data){
-    results.innerHTML +=''
-   //creating img tags to append to div
-    let getPlanetImg = document.createElement("img")
-    let getPlanetImg1 = document.createElement("img")
-    let getPlanetImg2 = document.createElement("img")
-    let getPlanetImg3 = document.createElement("img")
-    let getPlanetImg4 = document.createElement("img")
-    let getPlanetImg5 = document.createElement("img")
-  //creating div tags to append to div.results and to be appended to by img
-    let elem = document.createElement("div")
-    let elem1 = document.createElement("div")
-    let elem2 = document.createElement("div")
-    let elem3 = document.createElement("div")
-    let elem4 = document.createElement("div")
-    let elem5 = document.createElement("div")
-    //appending results to child div
-    results.appendChild(elem)
-    results.appendChild(elem1)
-    results.appendChild(elem2)
-    results.appendChild(elem3)
-    results.appendChild(elem4)
-    results.appendChild(elem5)
-    //appending div to child img
-    elem.appendChild(getPlanetImg)
-    elem1.appendChild(getPlanetImg1)
-    elem2.appendChild(getPlanetImg2)
-    elem3.appendChild(getPlanetImg3)
-    elem4.appendChild(getPlanetImg4)
-    elem5.appendChild(getPlanetImg5)
-    //setting the source of image tags to add planet images
-    getPlanetImg.setAttribute("class", "plaNetImg")
-    getPlanetImg1.setAttribute("class", "plaNetImg")
-    getPlanetImg2.setAttribute("class", "plaNetImg")
-    getPlanetImg3.setAttribute("class", "plaNetImg")
-    getPlanetImg4.setAttribute("class", "plaNetImg")
-    getPlanetImg5.setAttribute("class", "plaNetImg")
-    //added images to each container
-    getPlanetImg.setAttribute("src", planetImages["Alderaan"])
-    getPlanetImg1.setAttribute("src", planetImages["Yavin IV"])
-    getPlanetImg2.setAttribute("src", planetImages["Hoth"])
-    getPlanetImg3.setAttribute("src", planetImages["Dagobah"])
-    getPlanetImg4.setAttribute("src", planetImages["Bespin"])
-    getPlanetImg5.setAttribute("src", planetImages["Endor"])
-    //added class to format div container
-    elem.setAttribute("class", "plaNetz")
-    elem1.setAttribute("class", "plaNetz")
-    elem2.setAttribute("class", "plaNetz")
-    elem3.setAttribute("class", "plaNetz")
-    elem4.setAttribute("class", "plaNetz")
-    elem5.setAttribute("class", "plaNetz")
+    results.innerHTML +=`
+          <div class="imgs">
+            <div class ="actualImg">
+          <img src = ${this.images[data.name]} alt="Planet Image">
+          
+            <div class="space">  <div class="aleft">Name:</div> <div class="aright"><a href="${[data.url]}" target="_blank">${[data.name]}</a></div> </div>
+            <div class="space"> <div class="aleft">Population:</div> <div class="aright"><a href="${[data.url]}" target="_blank">${[data.population]}</a></div> </div>
+            <div class="space"> <div class="aleft">Diameter: </div> <div class="aright"><a href="${[data.url]}" target="_blank">${[data.diameter]}</a></div> </div>
+            <div class="space"> <div class="aleft">Climate: </div> <div class="aright"><a href="${[data.url]}" target="_blank">${[data.climate]}</a></div> </div>
+           
 
+          </div> 
+          </div>
+      `
   }
     
 }
@@ -115,3 +76,53 @@ const pimg = new GetStarWars(planetImages)
 console.log(pimg)
 // const getInFormation = new GetStarWars(getInfo(6))
 // console.log(getInFormation)
+
+  //  //creating img tags to append to div
+  //   let getPlanetImg = document.createElement("img")
+  //   let getPlanetImg1 = document.createElement("img")
+  //   let getPlanetImg2 = document.createElement("img")
+  //   let getPlanetImg3 = document.createElement("img")
+  //   let getPlanetImg4 = document.createElement("img")
+  //   let getPlanetImg5 = document.createElement("img")
+  // //creating div tags to append to div.results and to be appended to by img
+  //   let elem = document.createElement("div")
+  //   let elem1 = document.createElement("div")
+  //   let elem2 = document.createElement("div")
+  //   let elem3 = document.createElement("div")
+  //   let elem4 = document.createElement("div")
+  //   let elem5 = document.createElement("div")
+  //   //appending results to child div
+  //   results.appendChild(elem)
+  //   results.appendChild(elem1)
+  //   results.appendChild(elem2)
+  //   results.appendChild(elem3)
+  //   results.appendChild(elem4)
+  //   results.appendChild(elem5)
+  //   //appending div to child img
+  //   elem.appendChild(getPlanetImg)
+  //   elem1.appendChild(getPlanetImg1)
+  //   elem2.appendChild(getPlanetImg2)
+  //   elem3.appendChild(getPlanetImg3)
+  //   elem4.appendChild(getPlanetImg4)
+  //   elem5.appendChild(getPlanetImg5)
+  //   //setting the source of image tags to add planet images
+  //   getPlanetImg.setAttribute("class", "plaNetImg")
+  //   getPlanetImg1.setAttribute("class", "plaNetImg")
+  //   getPlanetImg2.setAttribute("class", "plaNetImg")
+  //   getPlanetImg3.setAttribute("class", "plaNetImg")
+  //   getPlanetImg4.setAttribute("class", "plaNetImg")
+  //   getPlanetImg5.setAttribute("class", "plaNetImg")
+  //   //added images to each container
+  //   getPlanetImg.setAttribute("src", planetImages["Alderaan"])
+  //   getPlanetImg1.setAttribute("src", planetImages["Yavin IV"])
+  //   getPlanetImg2.setAttribute("src", planetImages["Hoth"])
+  //   getPlanetImg3.setAttribute("src", planetImages["Dagobah"])
+  //   getPlanetImg4.setAttribute("src", planetImages["Bespin"])
+  //   getPlanetImg5.setAttribute("src", planetImages["Endor"])
+  //   //added class to format div container
+  //   elem.setAttribute("class", "plaNetz")
+  //   elem1.setAttribute("class", "plaNetz")
+  //   elem2.setAttribute("class", "plaNetz")
+  //   elem3.setAttribute("class", "plaNetz")
+  //   elem4.setAttribute("class", "plaNetz")
+  //   elem5.setAttribute("class", "plaNetz")

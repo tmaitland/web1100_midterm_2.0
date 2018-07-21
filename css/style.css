@@ -2,6 +2,8 @@
 body{
   margin: 0;
   padding: 0;
+  background: url("../starsgif.gif");
+  background-size: cover;
 }
 
 header{
@@ -16,23 +18,57 @@ header img{
 
 /* test */
 
-.plaNetz{
-  border: 1px solid black;
-  display: inline-flex;
+
+.imgs {
+  border: 5px solid black;
   position: relative;
-  min-height: 70vh;
-  max-height: 70vh;
-  min-width: 25vw;
-  max-width: 25vw;
-  justify-content: center;
-  margin: 30px;
-  margin-left: 50px;
+  display: inline-flex;
+  max-height: 100vh;
+  min-height: 60vh; 
+  max-width: 20vw;
+  min-width: 20vw;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 120px;
+  background-color: aliceblue;
+  font-family: 'Titillium Web', sans-serif;
+  box-shadow: 10px 10px 10px #00000093;
 }
 
-.plaNetImg{
-  min-width: 25vw;
-  max-width: 25vw;
-  min-height: 35vh;
-  max-height:35vh;
-  object-fit: cover;
+div img{
+  max-width: 20vw;
+  min-width: 20vw;
+  max-height: 30vh;
+  min-height: 30vh;
+
 }
+
+.aleft {
+  float: left;
+  position: relative;
+  display: inline-flex;
+  justify-content:left;
+  justify-content:space-evenly;
+  justify-content: space-between;
+  flex-direction: column;
+   
+  
+}
+
+.aright{
+  float: right;
+  position: relative;
+  display: inline-flex;
+  padding-right: 5px;
+  justify-content: right;
+  justify-content: space-evenly;
+  justify-content: space-between;
+  flex-direction: column;
+ 
+}
+
+.space {
+  
+  padding: 20px;
+}
+
